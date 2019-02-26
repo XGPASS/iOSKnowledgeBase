@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>查看pdf</title>
+    <script type="text/javascript" src="./PDFObject/pdfobject.min.js">
+    </script>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; default-src 'self' 'unsafe-inline'" />
+    <style type="text/css">
+
+        html,body {
+            height: 100%;
+        }
+
+        .example1 {
+            height: 100%;
+        }
+
+        /*.pdfobject-container {*/
+            /*width: 100%;*/
+        /*}*/
+        /*.pdfobject { border: 1px solid #666; }*/
+    </style>
+</head>
+<body>
+<div id="example1" class="example1"></div>
+<script type="text/javascript">
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+
+    PDFObject.embed(getQueryVariable("pdfPath"), "#example1");
+//    PDFObject.embed("./interface_explain.pdf", "#example1");
+</script>
+</body>
+</html>
